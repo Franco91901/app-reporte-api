@@ -52,27 +52,6 @@ public class IncidenteServiceImpl implements IncidenteService {
     }
     
     @Override
-    public IncidenteDTO crearIncidente(CrearIncidenteDTO dto, Long usuarioId) {
-
-        Usuario usuario = usuarioRepository.findById(usuarioId)
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-
-        Incidente incidente = new Incidente();
-
-        incidente.setTitulo(dto.getTitulo());
-        incidente.setDescripcion(dto.getDescripcion());
-        incidente.setLatitud(dto.getLatitud());
-        incidente.setLongitud(dto.getLongitud());
-        incidente.setTipoIncidente(TipoIncidente.valueOf(dto.getTipo()));
-        incidente.setFecha(LocalDateTime.now());
-        incidente.setUsuario(usuario);
-
-        Incidente guardado = incidenteRepository.save(incidente);
-
-        return incidenteMapper.toDTO(guardado);
-    }
-
-    @Override
     public List<IncidenteDTO> listarIncidentes() {
 
         return incidenteRepository.findAll()

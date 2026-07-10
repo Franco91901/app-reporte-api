@@ -11,20 +11,10 @@ import com.reporte.demo.entity.TipoIncidente;
 
 public interface IncidenteRepository extends JpaRepository<Incidente, Long> {
 
-    List<Incidente> findByTipoIncidente(TipoIncidente tipoIncidente);
-    
     List<Incidente> findByUsuarioId(Long usuarioId);
     
     List<Incidente> findByTipoIncidenteOrderByFechaDesc(TipoIncidente tipoIncidente);
 
-    @Query(value = "SELECT * FROM incidentes i WHERE " +
-    	       "(6371 * acos(cos(radians(:lat)) * cos(radians(i.latitud)) * " +
-    	       "cos(radians(i.longitud) - radians(:lng)) + sin(radians(:lat)) * " +
-    	       "sin(radians(i.latitud)))) <= :radio", nativeQuery = true)
-    	List<Incidente> buscarCercanos(@Param("lat") Double lat, 
-    	                               @Param("lng") Double lng, 
-    	                               @Param("radio") Double radio);
-    
     @Query(value = "SELECT * FROM incidentes i WHERE " +
     	       "(:tipo = 'TODOS' OR i.tipo_incidente = :tipo) AND " +
     	       "(6371 * acos(cos(radians(:lat)) * cos(radians(i.latitud)) * " +
@@ -35,6 +25,4 @@ public interface IncidenteRepository extends JpaRepository<Incidente, Long> {
     	                               @Param("lng") Double lng, 
     	                               @Param("radio") Double radio,
     	                               @Param("tipo") String tipo);
-
-    List<Incidente> findAllByOrderByCantidadVotosDescFechaDesc();
 }

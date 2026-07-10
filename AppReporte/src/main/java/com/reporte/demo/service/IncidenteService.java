@@ -11,8 +11,6 @@ import com.reporte.demo.entity.TipoIncidente;
 public interface IncidenteService {
 	IncidenteDTO crearIncidenteConEmail(CrearIncidenteDTO dto, String email);
 
-	IncidenteDTO crearIncidente(CrearIncidenteDTO dto, Long usuarioId);
-
 	List<IncidenteDTO> listarIncidentes();
 
 	List<IncidenteDTO> listarIncidentesPorTipo(TipoIncidente tipo);
