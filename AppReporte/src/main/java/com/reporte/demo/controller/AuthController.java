@@ -12,6 +12,7 @@ import com.reporte.demo.dto.RegistroDTO;
 import com.reporte.demo.dto.UsuarioDTO;
 import com.reporte.demo.service.AuthService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -22,14 +23,14 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/registro")
-    public ResponseEntity<UsuarioDTO> registro(@RequestBody RegistroDTO request){
+    public ResponseEntity<UsuarioDTO> registro(@Valid @RequestBody RegistroDTO request){
 
         return ResponseEntity.ok(authService.register(request));
 
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody LoginDTO request){
+    public ResponseEntity<AuthResponse> login(@Valid @RequestBody LoginDTO request){
 
         return ResponseEntity.ok(authService.login(request));
 

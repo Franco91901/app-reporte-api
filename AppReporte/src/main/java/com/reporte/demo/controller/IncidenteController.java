@@ -12,6 +12,7 @@ import com.reporte.demo.dto.IncidenteDTO;
 import com.reporte.demo.entity.TipoIncidente;
 import com.reporte.demo.service.IncidenteService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -43,7 +44,7 @@ public class IncidenteController {
     }
 
     @PostMapping
-    public ResponseEntity<IncidenteDTO> crearIncidente(@RequestBody CrearIncidenteDTO dto) {
+    public ResponseEntity<IncidenteDTO> crearIncidente(@Valid @RequestBody CrearIncidenteDTO dto) {
         String email = org.springframework.security.core.context.SecurityContextHolder
                         .getContext().getAuthentication().getName();
         
