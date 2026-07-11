@@ -31,6 +31,7 @@ Permite a los usuarios registrados crear, buscar y votar incidentes geolocalizad
 | BD             | MySQL 8                                 |
 | Build          | Maven 3.9.12                            |
 | Utilidades     | Lombok                                  |
+| Validación     | Jakarta Bean Validation                 |
 
 ## Endpoints
 
@@ -91,7 +92,7 @@ La API arranca en `http://localhost:8080`
 
 ```
 src/main/java/com/reporte/demo/
-├── config/          # DataInitializer, WebConfig
+├── config/          # DataInitializer, WebConfig, GlobalExceptionHandler
 ├── controller/      # AuthController, IncidenteController, UsuarioController
 ├── dto/             # Request/Response DTOs
 ├── entity/          # Usuario, Incidente, VotoIncidente, enums
