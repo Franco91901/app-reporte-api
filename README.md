@@ -100,4 +100,12 @@ src/main/java/com/reporte/demo/
 ├── repository/      # JPA repositories
 ├── security/        # JwtService, JwtFilter, SecurityConfig
 └── service/         # AuthService, IncidenteService + implementaciones
+
 ```
+
+## Vista Previa
+
+https://github.com/user-attachments/assets/9e3e14e7-d8ca-44f5-ade3-69598293e582
+
+
+
